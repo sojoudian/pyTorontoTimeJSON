@@ -4,7 +4,7 @@ import datetime
 import time
 
 # Define the handler for our server
-class MyHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
+class HTTPReqHandler(http.server.SimpleHTTPRequestHandler):
 
     def do_GET(self):
         # Handle the endpoint for the current time
@@ -32,7 +32,7 @@ startMSG = "Server running on http://localhost:"
 webMSG = startMSG+str(PORT)
 
 if __name__ == "__main__":
-    httpd = http.server.HTTPServer(('localhost', PORT), MyHTTPRequestHandler)
+    httpd = http.server.HTTPServer(('localhost', PORT), HTTPReqHandler)
     print(webMSG)
     try:
         httpd.serve_forever()
